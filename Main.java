@@ -3,7 +3,12 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        Cell c = new Cell("",2,'2');
-        System.out.println( Cell.is_form("=(a11+4)+54-11+(1)+1+(1)"));
+        SpreadSheet sheet = new SpreadSheet();
+        sheet.cells[1][1].setData("a2+a5");
+        sheet.cells[1][2].setData("a3+4");
+        sheet.cells[1][3].setData("a4+4");
+        System.out.println(sheet.cells[1][2].getName());
+        System.out.println(sheet.set_depth(sheet.cells[1][1]));
+
     }
 }
