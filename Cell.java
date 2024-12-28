@@ -32,9 +32,6 @@ public class Cell {
         this.name = name;
     }
 
-    public String toString() {
-        return data + " " + col + row;
-    }
 
     public int name2row() {
         return Integer.parseInt(name.substring(1, name.length() - 1));
@@ -135,6 +132,7 @@ public class Cell {
      **/
     public static double computeFrom(String str) {
         str = str.replaceAll("\\s", ""); // remove all spaces
+        str = str.replaceAll("=", ""); // remove all spaces
 
 
         if (str.contains("(")) {
