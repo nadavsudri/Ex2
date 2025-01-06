@@ -50,5 +50,18 @@ class CellTest {
         assertFalse(Cell.isCellRef(ref4));
         assertFalse(Cell.isCellRef(ref5));
     }
-  
+    @Test
+    void computefrom()
+    {
+        String a  = "(1+1*2)+3"; // 6
+        String b  = "30-11*3"; // -3
+        String c  = "11+(7-2)+(16/4)"; // 20
+        double [] sol = {6.0,-3.0,20.0};
+        String[] forms = {a,b,c};
+        for (int i =0; i<3;i++)
+        {assertEquals(sol[i],Cell.computeFrom(forms[i]));
+        }
+
+    }
+
 }

@@ -38,6 +38,10 @@ public SpreadSheet ()
     catch (StackOverflowError e){return -1;}
 
     }
+    /**
+     * this method recives a cell and returns the cell referenced in its data (only the first) when used, will be called recursively to return every sub cell.
+     * @param cell is used.
+     * **/
     public Cell getSubCells(Cell cell)
     {
         for (int i = 0; i < cell.getData().length(); i++)
@@ -61,12 +65,24 @@ public SpreadSheet ()
         }
         return value;
     }
+    /**
+     * this public method evaluate a cell using string refrence (calls the eValuate with the data of the given string cell)
+     * **/
     public double eValuate(String cellRef)
     {
         int a = Extras.char2num(cellRef.charAt(0));
         int b =  Integer.parseInt(cellRef.substring(1));
         Cell ab = cells[a][b];
         return eValuate(ab);
+    }
+    public void eValAll(){
+        for (int i = 0; i < 26; i++)
+        {
+            for (int j = 0; j < 99; j++)
+            {
+                 cells[i][j].setValue(eValuate(cells[i][j]));
+            }
+        }
     }
 
 }

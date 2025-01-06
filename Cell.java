@@ -15,6 +15,7 @@ public class Cell {
         this.row = row;
         this.col = col;
     }
+    public void setValue(double value) {this.value = value;}
 
     public String getData() {
         return this.data;
@@ -132,7 +133,7 @@ public class Cell {
      **/
     public static double computeFrom(String str) {
         str = str.replaceAll("\\s", ""); // remove all spaces
-        str = str.replaceAll("=", ""); // remove all spaces
+        str = str.replaceAll("=", ""); // remove all equal signs
 
 
         if (str.contains("(")) {
